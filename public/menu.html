@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Hunza Din</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .menu-category {
+            margin-bottom: 6rem;
+        }
+        
+        .category-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .category-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+            margin: 1rem auto 0;
+        }
+        
+        .menu-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .menu-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        
+        .menu-item-content {
+            flex: 1;
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px dotted rgba(255,255,255,0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .menu-item-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+        }
+        
+        .menu-item-price {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .menu-item-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-list {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Hunza Din<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="menu.html" class="active" style="color: var(--accent);">Menu</a></li>
+                <li><a href="order.html">Order Online</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="reservations.html" class="btn btn-primary btn-sm">Reserve</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container reveal">
+            <span class="section-subtitle">Our Offerings</span>
+            <h1 class="section-title" style="margin-bottom: 0;">The Menu</h1>
+        </div>
+    </header>
+
+    <!-- Menu Content -->
+    <main class="section">
+        <div class="container">
+            
+            <!-- Starters -->
+            <section class="menu-category reveal">
+                <h2 class="category-title">Starters</h2>
+                <div class="menu-list">
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Smoked Trout Tartare</h3>
+                                 <span class="menu-item-price">$18</span>
+                             </div>
+                             <p class="menu-item-desc">Valley-caught trout, capers, dill, served with crispy mountain flatbread.</p>
+                         </div>
+                    </div>
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Apricot Glazed Quail</h3>
+                                 <span class="menu-item-price">$22</span>
+                             </div>
+                             <p class="menu-item-desc">Pan-seared quail, Hunza apricot reduction, toasted pistachios.</p>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mains -->
+            <section class="menu-category reveal">
+                <h2 class="category-title">Mains</h2>
+                <div class="menu-list">
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Mountain Spiced Lamb</h3>
+                                 <span class="menu-item-price">$38</span>
+                             </div>
+                             <p class="menu-item-desc">Slow-roasted overnight with valley herbs, wild mushrooms, and smoked puree.</p>
+                         </div>
+                    </div>
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Valley Trout</h3>
+                                 <span class="menu-item-price">$32</span>
+                             </div>
+                             <p class="menu-item-desc">Freshly caught trout, pan-seared in brown butter, preserved lemon, and toasted pine nuts.</p>
+                         </div>
+                    </div>
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Foraged Mushroom Risotto</h3>
+                                 <span class="menu-item-price">$28</span>
+                             </div>
+                             <p class="menu-item-desc">Arborio rice, seasonal wild mushrooms, aged parmesan, truffle oil.</p>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desserts -->
+            <section class="menu-category reveal">
+                <h2 class="category-title">Desserts</h2>
+                <div class="menu-list">
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Apricot & Saffron Delight</h3>
+                                 <span class="menu-item-price">$16</span>
+                             </div>
+                             <p class="menu-item-desc">A delicate tart featuring Hunza apricots, saffron cream, and a pistachio crust.</p>
+                         </div>
+                    </div>
+                    <div class="menu-item">
+                         <div class="menu-item-content">
+                             <div class="menu-item-header">
+                                 <h3 class="menu-item-title">Dark Chocolate Fondant</h3>
+                                 <span class="menu-item-price">$18</span>
+                             </div>
+                             <p class="menu-item-desc">With mountain berry compote and vanilla bean ice cream.</p>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="brand-text">Hunza Din<span>.</span></h2>
+                    <p>Elevating the valley's flavors to world-class gastronomy.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <p>123 Mountain View Blvd</p>
+                    <p>contact@hunzadin.com</p>
+                    <p>+1 (555) 019-2838</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Hours</h3>
+                    <p>Mon - Thu: 5pm - 10pm</p>
+                    <p>Fri - Sat: 4pm - 11pm</p>
+                    <p>Sun: 4pm - 9pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hunza Din. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

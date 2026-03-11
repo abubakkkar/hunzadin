@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations | Hunza Din</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .reservation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            padding: 4rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        input, select, textarea {
+            background-color: var(--bg-alt);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-main);
+            padding: 1rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        /* Webkit specific dating styling for dark mode */
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        
+        #res-success {
+            display: none;
+            background-color: rgba(46, 204, 113, 0.1);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        #res-error {
+            display: none;
+            background-color: rgba(231, 76, 60, 0.1);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .reservation-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Hunza Din<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order Online</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container reveal">
+            <span class="section-subtitle">Book a Table</span>
+            <h1 class="section-title" style="margin-bottom: 0;">Reservations</h1>
+        </div>
+    </header>
+
+    <!-- Reservation Form -->
+    <main class="section">
+        <div class="container">
+            <div class="reservation-container reveal">
+                <div id="res-success">
+                    <h3>Reservation Confirmed</h3>
+                    <p>We look forward to hosting you. Check your email for details.</p>
+                </div>
+                
+                <div id="res-error">
+                    <h3>Reservation Failed</h3>
+                    <p id="res-error-text">Please check your details and try again.</p>
+                </div>
+                
+                <form id="reservation-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <select id="time" required>
+                                <option value="" disabled selected>Select a time</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <select id="guests" required>
+                                <option value="1">1 Person</option>
+                                <option value="2" selected>2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6">6+ People</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="requests">Special Requests (Optional)</label>
+                            <textarea id="requests" rows="4" placeholder="Dietary requirements, occasions, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Reservation</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="brand-text">Hunza Din<span>.</span></h2>
+                    <p>Elevating the valley's flavors to world-class gastronomy.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hunza Din. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('reservation-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const errorDiv = document.getElementById('res-error');
+            const errorText = document.getElementById('res-error-text');
+            
+            function showError(msg) {
+                errorDiv.style.display = 'block';
+                errorText.innerText = msg;
+                window.scrollTo({ top: errorDiv.offsetTop - 100, behavior: 'smooth' });
+            }
+            
+            errorDiv.style.display = 'none';
+
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('Please enter a valid email address with an @ symbol.');
+                return;
+            }
+            
+            const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('Please enter a valid phone number (at least 10 digits).');
+                return;
+            }
+
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Processing...';
+            submitBtn.disabled = true;
+
+            const payload = {
+                name: document.getElementById('name').value,
+                email: email,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                guests: parseInt(document.getElementById('guests').value),
+                phone: phone,
+                requests: document.getElementById('requests').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/reservations', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (response.ok) {
+                    this.style.display = 'none';
+                    document.getElementById('res-success').style.display = 'block';
+                    window.scrollTo({ top: document.querySelector('.reservation-container').offsetTop - 100, behavior: 'smooth' });
+                } else {
+                    const data = await response.json();
+                    showError('Error: ' + (data.error || 'Failed to complete reservation.'));
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('An unexpected error occurred. Please try again.');
+            } finally {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // Disable past dates
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+</body>
+</html>

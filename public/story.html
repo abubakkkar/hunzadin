@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Hunza Din</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .story-hero-img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            margin-bottom: 4rem;
+        }
+        
+        .content-block {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .content-block p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .image-grid img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Hunza Din<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html" class="active" style="color: var(--accent);">Story</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order Online</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="reservations.html" class="btn btn-primary btn-sm">Reserve</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container reveal">
+            <span class="section-subtitle">Heritage</span>
+            <h1 class="section-title" style="margin-bottom: 0;">Our Story</h1>
+        </div>
+    </header>
+
+    <!-- Story Content -->
+    <main class="section">
+        <div class="container">
+            <img src="images/story.png" alt="Hunza Valley Interior" class="story-hero-img reveal">
+            
+            <div class="content-block reveal">
+                <h2 class="section-title" style="text-align: center; font-size: 2rem;">A Legacy of the Peaks</h2>
+                <p>Hunza Din was born from a simple but profound desire: to bring the breathtaking elegance and deep-rooted culinary traditions of the Hunza Valley to the world. High amidst the snow-capped peaks, food is not merely sustenance; it is a celebration of the harvest, an art form passed down through generations, and a bond that unites communities.</p>
+                <p>Our founder spent years traversing the mountainous terrain, learning from local artisans and elders who hold the secrets to the valley's unique flavors. From the drying of apricots under the alpine sun to the slow-roasting of meats infused with wild, foraged herbs, every technique we use is a tribute to this majestic land.</p>
+            </div>
+            
+            <div class="image-grid reveal">
+                <img src="images/lamb.png" alt="Culinary Art">
+                <img src="images/hero.png" alt="Atmosphere">
+            </div>
+            
+            <div class="content-block reveal text-center">
+                <h2 class="section-title" style="font-size: 2rem;">Modern Gastronomy Meets Ancient Tradition</h2>
+                <p>Today, Hunza Din stands as a bridge between the old world and the new. We take pride in sourcing the finest, most authentic ingredients while elevating them through modern culinary techniques. Our dining room is designed to reflect the rustic yet refined beauty of the valley, offering an atmosphere that is both intimate and grand.</p>
+                <a href="reservations.html" class="btn btn-primary" style="margin-top: 2rem;">Experience It Yourself</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="brand-text">Hunza Din<span>.</span></h2>
+                    <p>Elevating the valley's flavors to world-class gastronomy.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <p>123 Mountain View Blvd</p>
+                    <p>contact@hunzadin.com</p>
+                    <p>+1 (555) 019-2838</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Hours</h3>
+                    <p>Mon - Thu: 5pm - 10pm</p>
+                    <p>Fri - Sat: 4pm - 11pm</p>
+                    <p>Sun: 4pm - 9pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hunza Din. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

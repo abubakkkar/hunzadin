@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online | Hunza Din</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background-color: var(--bg-alt);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .order-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        /* Menu Items */
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(207, 168, 110, 0.3);
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--bg-card);
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform var(--transition-fast), border-color var(--transition-fast);
+        }
+        
+        .order-item:hover {
+            transform: translateX(5px);
+            border-color: rgba(207, 168, 110, 0.5);
+        }
+        
+        .item-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .item-details p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 400px;
+        }
+        
+        .item-price {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .add-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .add-btn:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+        }
+        
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        /* Cart Section */
+        .cart-panel {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .cart-items {
+            min-height: 150px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .qty-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .qty-btn:hover {
+            color: var(--text-main);
+        }
+        
+        .cart-summary {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 2rem 0;
+            font-style: italic;
+        }
+        
+        @media (max-width: 992px) {
+            .order-layout {
+                grid-template-columns: 1fr;
+            }
+            .cart-panel {
+                position: static;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Hunza Din<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html" class="active" style="color: var(--accent);">Order Online</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container reveal">
+            <span class="section-subtitle">Takeaway & Delivery</span>
+            <h1 class="section-title" style="margin-bottom: 0;">Order Online</h1>
+        </div>
+    </header>
+
+    <!-- Ordering Section -->
+    <main class="section">
+        <div class="container">
+            <div class="order-layout">
+                
+                <!-- Menu List -->
+                <div class="menu-list-container reveal">
+                    
+                    <h2 class="category-title">Signature Mains</h2>
+                    
+                    <div class="order-item">
+                        <div class="item-details">
+                            <h3>Mountain Spiced Lamb</h3>
+                            <p>Slow-roasted valley herbs, wild mushrooms.</p>
+                        </div>
+                        <div class="item-actions">
+                            <span class="item-price" data-price="38">$38.00</span>
+                            <button class="add-btn" onclick="addToCart(1, 'Mountain Spiced Lamb', 38)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="item-details">
+                            <h3>Valley Trout</h3>
+                            <p>Pan-seared, preserved lemon, pine nuts.</p>
+                        </div>
+                        <div class="item-actions">
+                            <span class="item-price" data-price="32">$32.00</span>
+                            <button class="add-btn" onclick="addToCart(2, 'Valley Trout', 32)">+</button>
+                        </div>
+                    </div>
+                    
+                    <h2 class="category-title" style="margin-top: 3rem;">Starters & Sides</h2>
+                    
+                    <div class="order-item">
+                        <div class="item-details">
+                            <h3>Smoked Trout Tartare</h3>
+                            <p>Capers, dill, crispy mountain flatbread.</p>
+                        </div>
+                        <div class="item-actions">
+                            <span class="item-price" data-price="18">$18.00</span>
+                            <button class="add-btn" onclick="addToCart(3, 'Smoked Trout Tartare', 18)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="item-details">
+                            <h3>Foraged Mushroom Risotto (Side)</h3>
+                            <p>Arborio rice, seasonal mushrooms.</p>
+                        </div>
+                        <div class="item-actions">
+                            <span class="item-price" data-price="14">$14.00</span>
+                            <button class="add-btn" onclick="addToCart(4, 'Mushroom Risotto', 14)">+</button>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Cart Sidebar -->
+                <div class="cart-panel reveal delay-1">
+                    <div class="cart-header">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.5rem;">Your Order</h3>
+                        <span id="cart-count" style="background: var(--accent); color: #000; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">0</span>
+                    </div>
+                    
+                    <div class="cart-items" id="cart-items">
+                        <div class="empty-cart">Your cart is empty</div>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (8%)</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="total" style="color: var(--accent);">$0.00</span>
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+                            <input type="text" id="cust-name" placeholder="Full Name" style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-alt); color: white; width: 100%;">
+                            <input type="tel" id="cust-phone" placeholder="Phone Number" style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-alt); color: white; width: 100%;">
+                            <textarea id="cust-address" placeholder="Delivery Address" rows="2" style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.1); background: var(--bg-alt); color: white; width: 100%; font-family: var(--font-body);"></textarea>
+                        </div>
+                        
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="checkout()" id="checkout-btn" disabled>Proceed to Checkout</button>
+                        <div id="order-message" style="display: none; padding: 1rem; margin-top: 1rem; text-align: center; border-radius: 4px; font-size: 0.9rem;"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+         <div class="container" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+            <p>&copy; 2026 Hunza Din. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple Cart Logic
+        let cart = [];
+        
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ id, name, price, qty: 1 });
+            }
+            updateCartDisplay();
+        }
+        
+        function changeQty(id, delta) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                updateCartDisplay();
+            }
+        }
+        
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cart-items');
+            const countLabel = document.getElementById('cart-count');
+            const subtotalLabel = document.getElementById('subtotal');
+            const taxLabel = document.getElementById('tax');
+            const totalLabel = document.getElementById('total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+                countLabel.innerText = '0';
+                subtotalLabel.innerText = '$0.00';
+                taxLabel.innerText = '$0.00';
+                totalLabel.innerText = '$0.00';
+                checkoutBtn.disabled = true;
+                return;
+            }
+            
+            checkoutBtn.disabled = false;
+            
+            let html = '';
+            let subtotal = 0;
+            let count = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                count += item.qty;
+                
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <div style="font-weight: 500;">${item.name}</div>
+                            <div style="color: var(--accent); font-size: 0.85rem;">$${item.price.toFixed(2)}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                            <span style="width: 20px; text-align: center;">${item.qty}</span>
+                            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartContainer.innerHTML = html;
+            countLabel.innerText = count;
+            
+            const tax = subtotal * 0.08;
+            const total = subtotal + tax;
+            
+            subtotalLabel.innerText = `$${subtotal.toFixed(2)}`;
+            taxLabel.innerText = `$${tax.toFixed(2)}`;
+            totalLabel.innerText = `$${total.toFixed(2)}`;
+        }
+        
+        async function checkout() {
+            if(cart.length > 0) {
+                const name = document.getElementById('cust-name').value;
+                const phone = document.getElementById('cust-phone').value;
+                const address = document.getElementById('cust-address').value;
+                const msgDiv = document.getElementById('order-message');
+                
+                function showMessage(msg, isError = false) {
+                    msgDiv.style.display = 'block';
+                    msgDiv.innerText = msg;
+                    if(isError) {
+                        msgDiv.style.backgroundColor = 'rgba(231, 76, 60, 0.1)';
+                        msgDiv.style.border = '1px solid #e74c3c';
+                        msgDiv.style.color = '#e74c3c';
+                    } else {
+                        msgDiv.style.backgroundColor = 'rgba(46, 204, 113, 0.1)';
+                        msgDiv.style.border = '1px solid #2ecc71';
+                        msgDiv.style.color = '#2ecc71';
+                    }
+                }
+                
+                msgDiv.style.display = 'none';
+
+                if(!name || !phone || !address) {
+                    showMessage("Please fill in your name, phone, and delivery address before checkout.", true);
+                    return;
+                }
+                
+                const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
+                if (!phoneRegex.test(phone)) {
+                    showMessage("Please enter a valid phone number (at least 10 digits).", true);
+                    return;
+                }
+                
+                const checkoutBtn = document.getElementById('checkout-btn');
+                const originalText = checkoutBtn.innerText;
+                checkoutBtn.innerText = 'Processing...';
+                checkoutBtn.disabled = true;
+
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                const totalAmount = subtotal * 1.08; // Include tax
+
+                const payload = {
+                    customer_name: name,
+                    phone: phone,
+                    address: address,
+                    total_amount: totalAmount,
+                    items: cart
+                };
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/orders', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (response.ok) {
+                        showMessage("Thank you for your order! Your payment was successful.", false);
+                        cart = [];
+                        document.getElementById('cust-name').value = '';
+                        document.getElementById('cust-phone').value = '';
+                        document.getElementById('cust-address').value = '';
+                        updateCartDisplay();
+                    } else {
+                        const data = await response.json();
+                        showMessage('Error: ' + (data.error || 'Failed to process order.'), true);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showMessage('An unexpected error occurred. Please try again later.', true);
+                } finally {
+                    checkoutBtn.innerText = originalText;
+                    if(cart.length > 0) checkoutBtn.disabled = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

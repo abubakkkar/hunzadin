@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunza Din | A Culinary Journey to the Mountains</title>
+    <meta name="description" content="Experience the rich, authentic flavors of the valley at Hunza Din. A premium dining experience blending modern luxury with traditional heritage.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Hunza Din<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" style="color: var(--accent);">Home</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="order.html">Order Online</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="reservations.html" class="btn btn-primary btn-sm">Reserve</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="subtitle fade-in-up">Welcome to</div>
+            <h1 class="fade-in-up delay-1">Hunza Din</h1>
+            <p class="fade-in-up delay-2">A majestic fusion of modern gastronomy and the timeless traditions of the valley.</p>
+            <div class="hero-buttons fade-in-up delay-3">
+                <a href="reservations.html" class="btn btn-primary">Book a Table</a>
+                <a href="menu.html" class="btn btn-secondary">Discover Menu</a>
+            </div>
+        </div>
+        <div class="scroll-indicator fade-in-up delay-4">
+            <span>Scroll</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="section story-section">
+        <div class="container grid-2">
+            <div class="story-image-container reveal">
+                <img src="images/story.png" alt="Hunza Din Interior" id="story-img" class="story-image">
+                <div class="decorative-box"></div>
+            </div>
+            <div class="story-content reveal">
+                <span class="section-subtitle">Our Heritage</span>
+                <h2 class="section-title">A Taste of the Heights</h2>
+                <p>Born from the majestic peaks and rich cultural tapestry of the Hunza valley, our restaurant offers an elevated dining experience. We source the finest ingredients from local artisans to craft dishes that honor our roots while embracing contemporary culinary arts.</p>
+                <p>Every plate tells a story of tradition, passion, and the untamed beauty of the mountains.</p>
+                <a href="story.html" class="btn-link">Read our full story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Showcase -->
+    <section id="menu" class="section menu-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Culinary Excellence</span>
+                <h2 class="section-title">Signature Dishes</h2>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Dish 1 -->
+                <div class="menu-card reveal">
+                    <div class="dish-image-wrapper">
+                        <img src="images/lamb.png" alt="Signature Dish 1" id="dish1-img" class="dish-image">
+                        <div class="dish-overlay">
+                            <span class="dish-price">$38</span>
+                        </div>
+                    </div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Mountain Spiced Lamb</h3>
+                        <p class="dish-desc">Slow-roasted overnight with valley herbs, served with wild mushrooms and smoked puree.</p>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="menu-card reveal delay-1">
+                    <div class="dish-image-wrapper">
+                        <img src="images/trout.png" alt="Signature Dish 2" id="dish2-img" class="dish-image">
+                        <div class="dish-overlay">
+                            <span class="dish-price">$26</span>
+                        </div>
+                    </div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Valley Trout</h3>
+                        <p class="dish-desc">Freshly caught trout, pan-seared in brown butter, preserved lemon, and toasted pine nuts.</p>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="menu-card reveal delay-2">
+                    <div class="dish-image-wrapper">
+                        <div class="placeholder-img" style="background-color: #1a1a1a; height: 100%; display: flex; align-items: center; justify-content: center; color: #cfa86e; font-family: 'Playfair Display', serif; font-size: 1.2rem;">Hunza Dessert</div>
+                        <div class="dish-overlay">
+                            <span class="dish-price">$16</span>
+                        </div>
+                    </div>
+                    <div class="dish-info">
+                        <h3 class="dish-title">Apricot & Saffron Delight</h3>
+                        <p class="dish-desc">A delicate tart featuring Hunza apricots, saffron cream, and a pistachio crust.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 4rem;">
+                <a href="menu.html" class="btn btn-secondary">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="brand-text">Hunza Din<span>.</span></h2>
+                    <p>Elevating the valley's flavors to world-class gastronomy.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <p>123 Mountain View Blvd</p>
+                    <p>contact@hunzadin.com</p>
+                    <p>+1 (555) 019-2838</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Hours</h3>
+                    <p>Mon - Thu: 5pm - 10pm</p>
+                    <p>Fri - Sat: 4pm - 11pm</p>
+                    <p>Sun: 4pm - 9pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hunza Din. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
